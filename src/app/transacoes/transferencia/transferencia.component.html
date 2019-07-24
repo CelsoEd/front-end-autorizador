@@ -1,0 +1,47 @@
+<h1>Transferência</h1>
+<div class="alert alert-danger" role="alert" *ngIf="erro">
+  {{erro}}
+</div>
+<form [formGroup]="form" autocomplete="off">
+  <div class="text-center">
+    <app-procura-conta id="contaOrigemModal" (contaSelecionada)="setContaOrigem($event)"
+                       textoBotao="Procurar conta origem"></app-procura-conta>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-input id="agencia" placeholder="Digite a agência de origem" label="Agência de origem"
+                 formControlName="agencia"
+                 [model]="form.get('agencia')"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input id="conta" label="Conta de origem" placeholder="Digite o número da conta de origem"
+                 formControlName="conta"
+                 [model]="form.get('conta')"></app-input>
+    </div>
+  </div>
+  <div class="text-center">
+    <app-procura-conta id="contaDestinoModal" (contaSelecionada)="setContaDestino($event)"
+                       textoBotao="Procurar conta destino"></app-procura-conta>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <app-input id="agenciaDestino" placeholder="Digite a agência de destino" label="Agência de destino"
+                 formControlName="agenciaFavorecido"
+                 [model]="form.get('agenciaFavorecido')"></app-input>
+    </div>
+    <div class="col-md-6">
+      <app-input id="contaDestino" label="Conta de destino" placeholder="Digite o número da conta de destino"
+                 formControlName="contaFavorecido"
+                 [model]="form.get('contaFavorecido')"></app-input>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <app-input-moeda id="valor" placeholder="Digite o valor que deseja transferir" label="Valor" formControlName="valor"
+                 [model]="form.get('valor')"></app-input-moeda>
+    </div>
+  </div>
+  <div class="text-center">
+    <button (click)="transferir()" class="btn btn-primary" [disabled]="form.invalid">Transferir</button>
+  </div>
+</form>

@@ -1,0 +1,35 @@
+<h1>Cadastro de Conta</h1>
+<div class="alert alert-danger" role="alert" *ngIf="erro">
+  {{erro}}
+</div>
+<form [formGroup]="form" autocomplete="off">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="agencia">Agência</label>
+        <input type="text" class="form-control" id="agencia" placeholder="Digite a agência"
+               formControlName="agencia" name="agencia">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="cpf">CPF do Titular</label>
+        <input type="text" class="form-control" id="cpf" placeholder="Digite o CPF" formControlName="cpfTitular"
+               name="cpfTitular">
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="form-group">
+        <label for="pacote">Pacote de Serviços</label>
+        <select id="pacote" class="form-control" formControlName="tipoDoPacoteDeServicos" name="tipoDoPacoteDeServicos">
+          <option value="">Selecione: </option>
+          <option value="BASICO">Básico</option>
+          <option value="ESPECIAL">Especial</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary" [disabled]="form.invalid" (click)="criaConta()">Cadastrar conta</button>
+  </div>
+</form>

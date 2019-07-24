@@ -1,0 +1,48 @@
+<div class="text-center">
+  <button type="button" class="btn btn-secondary" data-toggle="modal" [attr.data-target]="'#' + id + 'Modal'">
+    {{textoBotao ? textoBotao : 'Procurar conta'}}
+  </button>
+</div>
+
+<div class="modal fade" [id]="id + 'Modal'" tabindex="-1" role="dialog" [attr.aria-labelledby]="id + 'Label'" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" [id]="id + 'Label'">Procure por uma conta</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="form">
+          <app-input placeholder="Procure com o número da agência, nome ou CPF do cliente..."
+                     formControlName="termo"></app-input>
+        </form>
+        <p *ngIf="!contas" class="text-center">Faça uma busca no campo acima</p>
+        <div class="table-responsive-sm" *ngIf="contas">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th scope="col">Agência</th>
+              <th scope="col">Número da conta</th>
+              <th scope="col">Nome do cliente</th>
+              <th scope="col">CPF do cliente</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let conta of contas" (click)="seleciona(conta)" data-dismiss="modal">
+              <th scope="row">{{conta.agencia}}</th>
+              <td>{{conta.numero}}</td>
+              <td>{{conta.titular.nome}}</td>
+              <td>{{conta.titular.cpf}}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

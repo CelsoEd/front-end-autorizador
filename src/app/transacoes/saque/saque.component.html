@@ -1,0 +1,26 @@
+<h1>Saque</h1>
+<div class="alert alert-danger" role="alert" *ngIf="erro">
+  {{erro}}
+</div>
+<form [formGroup]="form" autocomplete="off">
+  <div class="text-center">
+    <app-procura-conta id="contaModal" (contaSelecionada)="setConta($event)"></app-procura-conta>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
+                 [model]="form.get('agencia')"></app-input>
+    </div>
+    <div class="col-md-4">
+      <app-input id="conta" label="Conta" placeholder="Digite o número da conta" formControlName="conta"
+                 [model]="form.get('conta')"></app-input>
+    </div>
+    <div class="col-md-4">
+      <app-input-moeda id="valor" placeholder="Digite o valor que deseja sacar" label="Valor" formControlName="valor"
+                 [model]="form.get('valor')"></app-input-moeda>
+    </div>
+  </div>
+  <div class="text-center">
+    <button (click)="sacar()" class="btn btn-primary" [disabled]="form.invalid">Sacar</button>
+  </div>
+</form>

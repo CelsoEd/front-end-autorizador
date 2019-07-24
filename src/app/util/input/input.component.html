@@ -1,0 +1,12 @@
+<div class="form-group">
+  <label *ngIf="label" [for]="id">{{label}}</label>
+  <input type="text" class="form-control" [class.is-invalid]="model?.invalid && (model?.touched || model?.dirty)" [id]="id"
+         [placeholder]="placeholder"
+         [(ngModel)]="value"
+         (blur)="focus()"
+         (keyup)="change()"
+         [disabled]="disabled">
+  <div *ngIf="model">
+    <app-mensagem-erro [model]="model" *ngIf="model.invalid && (model.touched || model.dirty)"></app-mensagem-erro>
+  </div>
+</div>

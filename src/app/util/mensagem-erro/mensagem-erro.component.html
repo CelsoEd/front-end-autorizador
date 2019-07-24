@@ -1,0 +1,8 @@
+<div *ngIf="model.errors">
+  <div class="invalid-feedback" *ngIf="model.errors.required">
+    Campo obrigatório!
+  </div>
+  <div class="invalid-feedback" *ngIf="model.errors.min">
+    Valor mínimo de {{model.errors.min.min | currency : 'BRL' : 'symbol'}}
+  </div>
+</div>

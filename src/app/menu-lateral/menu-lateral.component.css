@@ -1,0 +1,9 @@
+.nav-link {
+  cursor: pointer;
+}
+
+#grad {
+  background-image: linear-gradient(to right, purple , aqua);
+
+}
+
