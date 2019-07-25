@@ -1,14 +1,13 @@
 import {NgModule} from '@angular/core';
 import {PreloadAllModules, RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from './home/home.component';
+import {HomeComponent} from './core/home/home.component';
 
 
 const routes: Routes = [
-  {path: 'home', component: HomeComponent},
   {path: 'cliente', loadChildren: './cliente/cliente.module#ClienteModule'},
   {path: 'conta', loadChildren: './conta/conta.module#ContaModule'},
   {path: 'transacoes', loadChildren: './transacoes/transacoes.module#TransacoesModule'},
-  {path: '', redirectTo: 'home', pathMatch: 'full'}
+  {path: '', loadChildren: './core/core.module#CoreModule'}
 ];
 
 @NgModule({

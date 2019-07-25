@@ -1,0 +1,18 @@
+<div id="lateral">
+  <div id="menu">
+    <h3 class="link-titulo">Cliente</h3>
+    <ul class="box">
+      <li><a class="dropdown-item" [routerLink]="['cliente', 'novo']">Novo</a></li>
+    </ul>
+    <h3 class="link-titulo">Conta</h3>
+    <ul class="box">
+      <li><a class="dropdown-item" [routerLink]="['conta', 'nova']">Nova</a></li>
+    </ul>
+    <h3 class="link-titulo">Transação</h3>
+    <ul class="box">
+      <li><a class="dropdown-item" [routerLink]="['transacoes', 'deposito']">Depósito</a></li>
+      <li><a class="dropdown-item" [routerLink]="['transacoes', 'saque']">Saque</a></li>
+      <li><a class="dropdown-item" [routerLink]="['transacoes', 'transferencia']">Transferêrencia</a></li>
+    </ul>
+  </div>
+</div>

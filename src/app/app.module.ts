@@ -3,25 +3,24 @@ import {LOCALE_ID, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-import {HomeComponent} from './home/home.component';
 import {registerLocaleData} from '@angular/common';
 
 import locatePt from '@angular/common/locales/pt';
-import {MenuLateralComponent} from './menu-lateral/menu-lateral.component';
+import {MenuLateralComponent} from './core/menu-lateral/menu-lateral.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {CoreModule} from './core/core.module';
 
 registerLocaleData(locatePt, 'pt');
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    MenuLateralComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CoreModule
   ],
   providers: [
     {provide: LOCALE_ID, useValue: 'pt'}
