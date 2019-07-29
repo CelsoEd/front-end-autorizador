@@ -7,6 +7,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LancamentosModel} from '../../model/lancamentos.model';
 import {TransacaoService} from '../transacao.service';
 import {SituacaoAutorizacao} from '../../util/enuns/situacao-autorizacao.enum';
+import {TransacaoConsultaModel} from '../../model/transacao-consulta.model';
 
 @Component({
   selector: 'app-extrato',
@@ -17,6 +18,7 @@ export class ExtratoComponent implements OnInit {
 
   form: FormGroup;
   lancamentos: LancamentosModel [];
+  erro: string;
 
   constructor(private fb: FormBuilder, private transacaoService: TransacaoService) {
   }
@@ -33,14 +35,15 @@ export class ExtratoComponent implements OnInit {
       .subscribe(autorizador => {
         if (autorizador.estado === SituacaoAutorizacao.AUTORIZADA) {
           this.lancamentos = JSON.parse(autorizador.particao);
+          this.erro = undefined;
         } else {
-          alert(`${autorizador.motivoDaNegacao}`);
+          this.erro = `${autorizador.motivoDaNegacao}`;
         }
       });
   }
 
 
-  private getTransacaoCompleta(): Transacao {
+  private getTransacaoCompleta(): TransacaoConsultaModel {
     return {
       nsuOrigem: 1,
       dataHora: Data.dataHoraAtualFormatada(),
@@ -48,7 +51,6 @@ export class ExtratoComponent implements OnInit {
       canal: Canal.EXTRACASH,
       conta: this.form.value.conta,
       tipo: TipoTransacao.EXTRATO,
-      valor: null
     };
   }
 }

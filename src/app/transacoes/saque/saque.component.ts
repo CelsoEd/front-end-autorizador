@@ -19,8 +19,9 @@ export class SaqueComponent implements OnInit {
   form: FormGroup;
 
   erro: string;
+  suscesso: string;
 
-  constructor(private fb: FormBuilder, private transacaoService: TransacaoService, private router: Router) {
+  constructor(private fb: FormBuilder, private transacaoService: TransacaoService) {
   }
 
   ngOnInit() {
@@ -34,8 +35,10 @@ export class SaqueComponent implements OnInit {
   sacar() {
     this.transacaoService.sacar(this.getTransacaoCompleta(this.form.value)).subscribe(autorizacao => {
       if (autorizacao.estado === SituacaoAutorizacao.AUTORIZADA) {
-        this.router.navigate(['transacoes', 'transacao-concluida']);
+        this.erro = undefined;
+        this.suscesso = `Saque realizado com suscesso`;
       } else {
+        this.suscesso = undefined;
         this.erro = `Transação negada. Motivo: ${autorizacao.motivoDaNegacao}`;
       }
     });

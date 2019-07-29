@@ -1,18 +1,32 @@
-<form [formGroup]="form" autocomplete="off">
-  <div class="row">
-    <div class="col-md-4">
-      <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
-                 [model]="form.get('agencia')"></app-input>
-    </div>
-    <div class="col-md-4">
-      <app-input id="conta" label="Conta" placeholder="Digite o número da conta" formControlName="conta"
-                 [model]="form.get('conta')"></app-input>
-    </div>
+<div class="alert alert-danger" role="alert" *ngIf="erro">
+  {{erro}}
+</div>
+<h1>Consulta de saldo</h1>
+
+
+<div class="row">
+  <div class="col-md-4">
+    <form [formGroup]="form" autocomplete="off">
+      <div>
+        <div class="col-md-12">
+          <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
+                     [model]="form.get('agencia')"></app-input>
+        </div>
+        <div class="col-md-12">
+          <app-input id="conta" label="Conta" placeholder="Digite o número da conta" formControlName="conta"
+                     [model]="form.get('conta')"></app-input>
+        </div>
+      </div>
+      <div class="text-center">
+        <button (click)="consultaSaldo()" class="btn btn-dark" [disabled]="form.invalid">Buscar saldo</button>
+      </div>
+    </form>
+
   </div>
-  <div class="text-center">
-    <button (click)="consultaSaldo()" class="btn btn-primary" [disabled]="form.invalid">Buscar saldo</button>
+  <div class="col-md-8">
+    <div class="jumbotron" align="center" *ngIf="saldo">
+      <h1 class="display-4">Saldo: {{this.saldo | currency : 'BRL' : 'symbol'}}</h1>
+    </div>
+
   </div>
-</form>
-]<div class="jumbotron" *ngIf="saldo">
-  <h1 class="display-4">Saldo: {{this.saldo | currency : 'BRL' : 'symbol'}}</h1>
 </div>

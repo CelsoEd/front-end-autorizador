@@ -1,13 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TransacaoService} from '../transacao.service';
-import {Router} from '@angular/router';
 import {SituacaoAutorizacao} from '../../util/enuns/situacao-autorizacao.enum';
 import {TransacaoForm} from '../../model/transacao-base.model';
 import {Transacao} from '../../model/transacao.model';
 import {Data} from '../../util/data';
 import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
+import {THIS_EXPR} from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'app-deposito',
@@ -16,10 +16,10 @@ import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
 export class DepositoComponent implements OnInit {
 
   form: FormGroup;
-
+  suscesso: string;
   erro: string;
 
-  constructor(private fb: FormBuilder, private transacaoService: TransacaoService, private router: Router) {
+  constructor(private fb: FormBuilder, private transacaoService: TransacaoService) {
   }
 
   ngOnInit() {
@@ -31,16 +31,19 @@ export class DepositoComponent implements OnInit {
   }
 
   deposita() {
-    this.transacaoService.deposita(this.getTransacaoCompleta(this.form.value)).subscribe(autorizacao => {
-      if (autorizacao.estado === SituacaoAutorizacao.AUTORIZADA) {
-        this.router.navigate(['transacoes', 'transacao-concluida']);
-      } else {
-        this.erro = `Transação negada. Motivo: ${autorizacao.motivoDaNegacao}`;
-      }
-    });
+    this.transacaoService.deposita(this.getTransacaoCompleta())
+      .subscribe(autorizacao => {
+        if (autorizacao.estado === SituacaoAutorizacao.AUTORIZADA) {
+          this.erro = undefined;
+          this.suscesso = `Deposito realizado com sucesso`;
+        } else {
+          this.suscesso = undefined;
+          this.erro = `Deposito não autorizado motivo: ${autorizacao.motivoDaNegacao}`;
+        }
+      });
   }
 
-  private getTransacaoCompleta(transacao: TransacaoForm): Transacao {
+  private getTransacaoCompleta(): Transacao {
     return {
       nsuOrigem: 1,
       dataHora: Data.dataHoraAtualFormatada(),

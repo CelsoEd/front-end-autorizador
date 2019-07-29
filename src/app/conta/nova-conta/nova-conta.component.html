@@ -1,3 +1,6 @@
+<div class="alert alert-success" role="alert" *ngIf="suscesso">
+  {{suscesso}}
+</div>
 <h1>Cadastro de Conta</h1>
 <div class="alert alert-danger" role="alert" *ngIf="erro">
   {{erro}}
@@ -30,6 +33,6 @@
     </div>
   </div>
   <div class="text-center">
-    <button class="btn btn-primary" [disabled]="form.invalid" (click)="criaConta()">Cadastrar conta</button>
+    <button class="btn btn-dark" [disabled]="form.invalid" (click)="criaConta()">Cadastrar conta</button>
   </div>
 </form>

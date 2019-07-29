@@ -10,7 +10,7 @@ import {Router} from '@angular/router';
 export class NovaContaComponent implements OnInit {
 
   form: FormGroup;
-  erro: string;
+  suscesso: string;
 
   constructor(private fb: FormBuilder, private contaService: ContaService, private router: Router) {
   }
@@ -26,6 +26,6 @@ export class NovaContaComponent implements OnInit {
   criaConta() {
     this.contaService.novaConta(this.form.value)
       .subscribe();
-    alert('Conta criada com suscesso');
+    this.suscesso = `Conta criada com suscesso`;
   }
 }

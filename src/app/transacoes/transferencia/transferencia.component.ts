@@ -19,6 +19,7 @@ export class TransferenciaComponent implements OnInit {
 
   form: FormGroup;
 
+  suscesso: string;
   erro: string;
 
   constructor(private fb: FormBuilder, private transacaoService: TransacaoService, private router: Router) {
@@ -37,9 +38,11 @@ export class TransferenciaComponent implements OnInit {
   transferir() {
     this.transacaoService.transferir(this.getTransacaoTransfereciaCompleta(this.form.value)).subscribe(autorizacao => {
       if (autorizacao.estado === SituacaoAutorizacao.AUTORIZADA) {
-        this.router.navigate(['transacoes', 'transacao-concluida']);
+        this.erro = undefined;
+        this.suscesso = `Transação concluida`;
       } else {
-        this.erro = `Transação negada. Motivo: ${autorizacao.motivoDaNegacao}`;
+        this.suscesso = undefined;
+        this.erro = `Transação negada motivo: ${autorizacao.motivoDaNegacao}`;
       }
     });
   }
@@ -56,15 +59,5 @@ export class TransferenciaComponent implements OnInit {
       tipo: TipoTransacao.TRANSFERENCIA,
       valor: transacaoTransferenciaForm.valor
     };
-  }
-
-  setContaOrigem(conta: ContaResponse) {
-    this.form.get('agencia').setValue(conta.agencia);
-    this.form.get('conta').setValue(conta.numero);
-  }
-
-  setContaDestino(contaDestino: ContaResponse) {
-    this.form.get('agenciaFavorecido').setValue(contaDestino.agencia);
-    this.form.get('contaFavorecido').setValue(contaDestino.numero);
   }
 }

@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 export class NovoClienteComponent implements OnInit {
 
   form: FormGroup;
+  suscesso: string;
 
   constructor(private fb: FormBuilder, private clienteService: ClienteService, private router: Router) {
     this.form = fb.group({
@@ -23,7 +24,7 @@ export class NovoClienteComponent implements OnInit {
 
   criaCliente() {
     this.clienteService.novo(this.form.value).subscribe();
-    alert('cliente cadastrado');
+    this.suscesso = `Cliente cadastrado com suscesso`;
   }
 
 }

@@ -1,3 +1,3 @@
-export class Canal {
-  public static EXTRACASH = 'EXTRACASH';
+export enum Canal {
+  EXTRACASH = 'EXTRACASH'
 }

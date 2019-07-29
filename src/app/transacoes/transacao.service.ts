@@ -4,6 +4,7 @@ import {Transacao, TransacaoTransferencia} from '../model/transacao.model';
 import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
 import {Autorizacao} from '../model/autorizacao.model';
+import {TransacaoConsultaModel} from '../model/transacao-consulta.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,9 +21,9 @@ export class TransacaoService {
       .post<Autorizacao>(`${this.baseUrl}/deposito-saque`, transacao);
   }
 
-  consultaSaldo(transacao: Transacao): Observable<Autorizacao> {
+  consultaSaldo(transacao: TransacaoConsultaModel): Observable<Autorizacao> {
     return this.http
-      .post<Autorizacao>(`${this.baseUrl}/saldo`, transacao);
+      .post<Autorizacao>(`${this.baseUrl}/lancamento-saldo`, transacao);
   }
 
   sacar(transacao: Transacao): Observable<Autorizacao> {
@@ -34,8 +35,8 @@ export class TransacaoService {
     return this.http.post<Autorizacao>(`${this.baseUrl}/transferencia`, transacao);
   }
 
-  consultaLancamentos(transacao: Transacao): Observable<Autorizacao> {
-    return this.http.post<Autorizacao>(`${this.baseUrl}/lancamento`, transacao);
+  consultaLancamentos(transacao: TransacaoConsultaModel): Observable<Autorizacao> {
+      return this.http.post<Autorizacao>(`${this.baseUrl}/lancamento-saldo`, transacao);
   }
 
 }

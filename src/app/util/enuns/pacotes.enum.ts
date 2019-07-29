@@ -1,4 +1,4 @@
-export class Pacotes {
-  public static BASICO = 'BASICO';
-  public static ESPECIAL = 'ESPECIAL';
+export enum Pacotes {
+  BASICO = 'BASICO',
+  ESPECIAL = 'ESPECIAL'
 }
