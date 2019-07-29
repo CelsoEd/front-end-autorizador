@@ -1,0 +1,18 @@
+<form [formGroup]="form" autocomplete="off">
+  <div class="row">
+    <div class="col-md-4">
+      <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
+                 [model]="form.get('agencia')"></app-input>
+    </div>
+    <div class="col-md-4">
+      <app-input id="conta" label="Conta" placeholder="Digite o número da conta" formControlName="conta"
+                 [model]="form.get('conta')"></app-input>
+    </div>
+  </div>
+  <div class="text-center">
+    <button (click)="consultaSaldo()" class="btn btn-primary" [disabled]="form.invalid">Buscar saldo</button>
+  </div>
+</form>
+]<div class="jumbotron" *ngIf="saldo">
+  <h1 class="display-4">Saldo: {{this.saldo | currency : 'BRL' : 'symbol'}}</h1>
+</div>

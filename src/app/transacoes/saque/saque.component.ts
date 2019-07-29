@@ -52,9 +52,4 @@ export class SaqueComponent implements OnInit {
       valor: transacao.valor
     };
   }
-
-  setConta(conta: ContaResponse) {
-    this.form.get('agencia').setValue(conta.agencia);
-    this.form.get('conta').setValue(conta.numero);
-  }
 }

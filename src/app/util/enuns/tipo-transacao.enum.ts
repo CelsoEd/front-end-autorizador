@@ -1,5 +1,7 @@
-export class TipoTransacao {
-  public static DEPOSITO = 'DEPOSITO';
-  public static SAQUE = 'SAQUE';
-  public static TRANSFERENCIA = 'TRANSFERENCIA';
+export enum TipoTransacao {
+  DEPOSITO = 'DEPOSITO',
+  SAQUE = 'SAQUE',
+  TRANSFERENCIA = 'TRANSFERENCIA',
+  SALDO = 'SALDO',
+  EXTRATO = 'EXTRATO'
 }

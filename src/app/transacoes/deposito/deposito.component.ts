@@ -8,7 +8,6 @@ import {Transacao} from '../../model/transacao.model';
 import {Data} from '../../util/data';
 import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
-import {ContaResponse} from '../../model/conta.model';
 
 @Component({
   selector: 'app-deposito',
@@ -45,16 +44,11 @@ export class DepositoComponent implements OnInit {
     return {
       nsuOrigem: 1,
       dataHora: Data.dataHoraAtualFormatada(),
-      agencia: transacao.agencia,
+      agencia: this.form.value.agencia,
       canal: Canal.EXTRACASH,
-      conta: transacao.conta,
+      conta: this.form.value.conta,
       tipo: TipoTransacao.DEPOSITO,
-      valor: transacao.valor
+      valor: this.form.value.valor
     };
-  }
-
-  setConta(conta: ContaResponse) {
-    this.form.get('agencia').setValue(conta.agencia);
-    this.form.get('conta').setValue(conta.numero);
   }
 }

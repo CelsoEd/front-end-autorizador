@@ -10,10 +10,12 @@ import {TransacaoService} from './transacao.service';
 import {UtilModule} from '../util/util.module';
 import {TransacaoConcluidaComponent} from './transacao-concluida/transacao-concluida.component';
 import {ContaModule} from '../conta/conta.module';
+import { SaldoComponent } from './saldo/saldo.component';
+import { ExtratoComponent } from './extrato/extrato.component';
 
 
 @NgModule({
-  declarations: [DepositoComponent, SaqueComponent, TransferenciaComponent, TransacaoConcluidaComponent],
+  declarations: [DepositoComponent, SaqueComponent, TransferenciaComponent, TransacaoConcluidaComponent, SaldoComponent, ExtratoComponent],
   imports: [
     CommonModule,
     TransacoesRoutingModule,

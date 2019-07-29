@@ -9,4 +9,5 @@ export interface Autorizacao {
   transacao: string;
   motivoDaNegacao: string;
   estado: string;
+  particao: string;
 }

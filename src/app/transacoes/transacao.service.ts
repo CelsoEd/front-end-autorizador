@@ -20,6 +20,11 @@ export class TransacaoService {
       .post<Autorizacao>(`${this.baseUrl}/deposito-saque`, transacao);
   }
 
+  consultaSaldo(transacao: Transacao): Observable<Autorizacao> {
+    return this.http
+      .post<Autorizacao>(`${this.baseUrl}/saldo`, transacao);
+  }
+
   sacar(transacao: Transacao): Observable<Autorizacao> {
     return this.http
       .post<Autorizacao>(`${this.baseUrl}/deposito-saque`, transacao);
@@ -27,6 +32,10 @@ export class TransacaoService {
 
   transferir(transacao: TransacaoTransferencia): Observable<Autorizacao> {
     return this.http.post<Autorizacao>(`${this.baseUrl}/transferencia`, transacao);
+  }
+
+  consultaLancamentos(transacao: Transacao): Observable<Autorizacao> {
+    return this.http.post<Autorizacao>(`${this.baseUrl}/lancamento`, transacao);
   }
 
 }

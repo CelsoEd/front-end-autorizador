@@ -4,13 +4,17 @@ import {DepositoComponent} from './deposito/deposito.component';
 import {TransacaoConcluidaComponent} from './transacao-concluida/transacao-concluida.component';
 import {SaqueComponent} from './saque/saque.component';
 import {TransferenciaComponent} from './transferencia/transferencia.component';
+import {SaldoComponent} from './saldo/saldo.component';
+import {ExtratoComponent} from './extrato/extrato.component';
 
 
 const routes: Routes = [
   {path: 'deposito', component: DepositoComponent},
   {path: 'saque', component: SaqueComponent},
   {path: 'transferencia', component: TransferenciaComponent},
-  {path: 'transacao-concluida', component: TransacaoConcluidaComponent}
+  {path: 'transacao-concluida', component: TransacaoConcluidaComponent},
+  {path: 'saldo', component: SaldoComponent},
+  {path: 'extrato', component: ExtratoComponent}
 ];
 
 @NgModule({

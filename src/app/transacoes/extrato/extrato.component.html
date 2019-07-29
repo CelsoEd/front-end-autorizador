@@ -1,0 +1,37 @@
+<form [formGroup]="form" autocomplete="off">
+  <div class="row">
+    <div class="col-md-4">
+      <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
+                 [model]="form.get('agencia')"></app-input>
+    </div>
+    <div class="col-md-4">
+      <app-input id="conta" label="Conta" placeholder="Digite o número da conta" formControlName="conta"
+                 [model]="form.get('conta')"></app-input>
+    </div>
+  </div>
+  <div class="text-center">
+    <button (click)="consultaLancamento()" class="btn btn-primary" [disabled]="form.invalid">Buscar Lançamentos</button>
+  </div>
+</form>
+<div class="jumbotron" *ngIf="lancamentos">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Data e Hora</th>
+      <th scope="col">Tipo</th>
+      <th scope="col">Descrição</th>
+      <th scope="col">Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let lancamento of lancamentos">
+      <td>{{lancamento.sequencial}}</td>
+      <td>{{lancamento.dataHora}}</td>
+      <td>{{lancamento.tipo}}</td>
+      <td>{{lancamento.descricao}}</td>
+      <td>{{lancamento.valor | currency : 'BRL' : 'symbol'}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

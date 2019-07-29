@@ -9,6 +9,7 @@ import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
 import {TransacaoTransferencia} from '../../model/transacao.model';
 import {ContaResponse} from '../../model/conta.model';
+import {strictEqual} from 'assert';
 
 @Component({
   selector: 'app-transferencia',
