@@ -1,0 +1,18 @@
+<br>
+<div class="jumbotron" *ngIf="clientes">
+  <h1>Lista de Clientes</h1><br>
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let cliente of clientes">
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.cpf}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

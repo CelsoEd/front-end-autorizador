@@ -6,7 +6,6 @@ import {AppComponent} from './app.component';
 import {registerLocaleData} from '@angular/common';
 
 import locatePt from '@angular/common/locales/pt';
-import {MenuLateralComponent} from './core/menu-lateral/menu-lateral.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {CoreModule} from './core/core.module';
 

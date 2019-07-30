@@ -4,7 +4,6 @@
 <h1>Consulta Extrato</h1>
 <form [formGroup]="form" autocomplete="off">
   <div class="align-content-center">
-
   <div >
     <div>
       <app-input id="agencia" placeholder="Digite a agência" label="Agência" formControlName="agencia"
@@ -19,11 +18,11 @@
       <button (click)="consultaLancamento()" class="btn btn-dark" [disabled]="form.invalid">Consulta Extrato
       </button>
     </div>
-
   </div>
 </form>
 <br>
 <div class="jumbotron" *ngIf="lancamentos">
+  <h1 class="text-center">Extrato</h1><br>
   <table class="table">
     <thead>
     <tr>

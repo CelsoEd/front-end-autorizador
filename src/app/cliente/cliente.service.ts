@@ -15,4 +15,10 @@ export class ClienteService {
   novo(cliente: Cliente): Observable<any> {
     return this.http.post(`${environment.apiUrl}/cliente/novo`, cliente);
   }
+
+  consulta(): Observable<any> {
+    return this.http.get<Cliente[]>(`${environment.apiUrl}/cliente/todos`);
+  }
+
+
 }

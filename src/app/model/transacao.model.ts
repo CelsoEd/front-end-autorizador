@@ -1,4 +1,4 @@
-export interface Transacao {
+export interface TransacaoFinanceira {
   nsuOrigem: number;
   dataHora: string;
   canal: string;
@@ -8,7 +8,7 @@ export interface Transacao {
   valor: string;
 }
 
-export interface TransacaoTransferencia extends Transacao {
-  agenciaFavorecido: number;
-  contaFavorecido: number;
+export interface TransacaoTransferencia extends TransacaoFinanceira {
+  agenciaDestino: number;
+  contaDestino: number;
 }

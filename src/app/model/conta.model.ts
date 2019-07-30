@@ -6,10 +6,10 @@ export interface Conta {
   tipoDoPacoteDeServicos: string;
 }
 
-export interface ContaResponse {
+export interface ContaCompleta {
+  saldo: string;
   agencia: number;
   numero: number;
-  saldo: string;
   titular: Cliente;
   estado: string;
   tipoDoPacoteDeServicos: string;

@@ -5,10 +5,11 @@ import {ClienteRoutingModule} from './cliente-routing.module';
 import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
+import { BuscaTodosComponent } from './busca-todos/busca-todos.component';
 
 
 @NgModule({
-  declarations: [NovoClienteComponent],
+  declarations: [NovoClienteComponent, BuscaTodosComponent],
   imports: [
     CommonModule,
     ClienteRoutingModule,

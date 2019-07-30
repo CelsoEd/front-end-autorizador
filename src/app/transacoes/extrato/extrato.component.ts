@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Transacao} from '../../model/transacao.model';
 import {Data} from '../../util/data';
 import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';

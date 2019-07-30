@@ -2,12 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TransacaoService} from '../transacao.service';
 import {SituacaoAutorizacao} from '../../util/enuns/situacao-autorizacao.enum';
-import {TransacaoForm} from '../../model/transacao-base.model';
-import {Transacao} from '../../model/transacao.model';
 import {Data} from '../../util/data';
 import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
-import {THIS_EXPR} from '@angular/compiler/src/output/output_ast';
+import {TransacaoFinanceira} from '../../model/transacao.model';
 
 @Component({
   selector: 'app-deposito',
@@ -43,7 +41,7 @@ export class DepositoComponent implements OnInit {
       });
   }
 
-  private getTransacaoCompleta(): Transacao {
+  private getTransacaoCompleta(): TransacaoFinanceira {
     return {
       nsuOrigem: 1,
       dataHora: Data.dataHoraAtualFormatada(),

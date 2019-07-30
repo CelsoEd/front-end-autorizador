@@ -3,13 +3,10 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {TransacaoService} from '../transacao.service';
 import {Router} from '@angular/router';
 import {SituacaoAutorizacao} from '../../util/enuns/situacao-autorizacao.enum';
-import {TransacaoTransferenciaForm} from '../../model/transacao-base.model';
 import {Data} from '../../util/data';
 import {Canal} from '../../util/enuns/canal.enum';
 import {TipoTransacao} from '../../util/enuns/tipo-transacao.enum';
 import {TransacaoTransferencia} from '../../model/transacao.model';
-import {ContaResponse} from '../../model/conta.model';
-import {strictEqual} from 'assert';
 
 @Component({
   selector: 'app-transferencia',
@@ -47,17 +44,17 @@ export class TransferenciaComponent implements OnInit {
     });
   }
 
-  private getTransacaoTransfereciaCompleta(transacaoTransferenciaForm: TransacaoTransferenciaForm): TransacaoTransferencia {
+  private getTransacaoTransfereciaCompleta(transferencia: TransacaoTransferencia) {
     return {
       nsuOrigem: 1,
       dataHora: Data.dataHoraAtualFormatada(),
-      agencia: transacaoTransferenciaForm.agencia,
-      conta: transacaoTransferenciaForm.conta,
+      agencia: transferencia.agencia,
+      conta: transferencia.conta,
       canal: Canal.EXTRACASH,
-      agenciaFavorecido: transacaoTransferenciaForm.agenciaFavorecido,
-      contaFavorecido: transacaoTransferenciaForm.contaFavorecido,
-      tipo: TipoTransacao.TRANSFERENCIA,
-      valor: transacaoTransferenciaForm.valor
+      agenciaDestino: transferencia.agenciaDestino,
+      contaDestino: transferencia.contaDestino,
+      valor: transferencia.valor,
+      tipo: TipoTransacao.TRANSFERENCIA
     };
   }
 }

@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ContaService} from '../conta.service';
 import {Router} from '@angular/router';
+import {ContaCompleta} from '../../model/conta.model';
 
 @Component({
   selector: 'app-nova-conta',
@@ -11,6 +12,7 @@ export class NovaContaComponent implements OnInit {
 
   form: FormGroup;
   suscesso: string;
+  contaFront: ContaCompleta;
 
   constructor(private fb: FormBuilder, private contaService: ContaService, private router: Router) {
   }
@@ -25,7 +27,12 @@ export class NovaContaComponent implements OnInit {
 
   criaConta() {
     this.contaService.novaConta(this.form.value)
-      .subscribe();
+      .subscribe(conta => {
+        this.contaFront = conta;
+      });
     this.suscesso = `Conta criada com suscesso`;
   }
 }
+// this.contaFront.agencia = conta.agencia;
+// this.contaFront.numero = conta.numero;
+// this.contaFront.estado = conta.estado;
