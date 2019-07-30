@@ -33,6 +33,3 @@ export class NovaContaComponent implements OnInit {
     this.suscesso = `Conta criada com suscesso`;
   }
 }
-// this.contaFront.agencia = conta.agencia;
-// this.contaFront.numero = conta.numero;
-// this.contaFront.estado = conta.estado;

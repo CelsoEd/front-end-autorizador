@@ -28,7 +28,7 @@ export class TransferenciaComponent implements OnInit {
       conta: this.fb.control('', Validators.required),
       agenciaFavorecido: this.fb.control('', Validators.required),
       contaFavorecido: this.fb.control('', Validators.required),
-      valor: this.fb.control('', [Validators.required, Validators.min(0.01)])
+      valor: this.fb.control('', [Validators.required, Validators.min(5.00)])
     });
   }
 

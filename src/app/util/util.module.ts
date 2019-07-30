@@ -4,17 +4,19 @@ import {InputComponent} from './input/input.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MensagemErroComponent} from './mensagem-erro/mensagem-erro.component';
 import {InputMoedaComponent} from './input-moeda/input-moeda.component';
+import { CpfPipe } from './pipe/cpf.pipe';
 
 
 @NgModule({
-  declarations: [InputComponent, MensagemErroComponent, InputMoedaComponent],
+  declarations: [InputComponent, MensagemErroComponent, InputMoedaComponent, CpfPipe],
   imports: [
     CommonModule,
     FormsModule
   ],
   exports: [
     InputComponent,
-    InputMoedaComponent
+    InputMoedaComponent,
+    CpfPipe
   ]
 })
 export class UtilModule {

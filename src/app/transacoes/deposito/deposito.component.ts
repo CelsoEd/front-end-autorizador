@@ -24,7 +24,7 @@ export class DepositoComponent implements OnInit {
     this.form = this.fb.group({
       agencia: this.fb.control('', Validators.required),
       conta: this.fb.control('', Validators.required),
-      valor: this.fb.control('', [Validators.required, Validators.min(0.01)])
+      valor: this.fb.control('', [Validators.required, Validators.min(5.00)])
     });
   }
 
