@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ContaService} from '../conta.service';
 import {Router} from '@angular/router';
 import {ContaCompleta} from '../../model/conta.model';
+import {Cpf} from '../../util/validadores/cpf';
 
 @Component({
   selector: 'app-nova-conta',

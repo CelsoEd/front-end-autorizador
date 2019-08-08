@@ -9,6 +9,6 @@ export interface TransacaoFinanceira {
 }
 
 export interface TransacaoTransferencia extends TransacaoFinanceira {
-  agenciaDestino: number;
-  contaDestino: number;
+  agenciaFavorecido: number;
+  contaFavorecido: number;
 }

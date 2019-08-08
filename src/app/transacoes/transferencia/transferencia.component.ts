@@ -51,8 +51,8 @@ export class TransferenciaComponent implements OnInit {
       agencia: transferencia.agencia,
       conta: transferencia.conta,
       canal: Canal.EXTRACASH,
-      agenciaDestino: transferencia.agenciaDestino,
-      contaDestino: transferencia.contaDestino,
+      agenciaFavorecido: transferencia.agenciaFavorecido,
+      contaFavorecido: transferencia.contaFavorecido,
       valor: transferencia.valor,
       tipo: TipoTransacao.TRANSFERENCIA
     };

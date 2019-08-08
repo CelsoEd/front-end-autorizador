@@ -6,6 +6,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {ClienteService} from './cliente.service';
 import { BuscaTodosComponent } from './busca-todos/busca-todos.component';
+import {UtilModule} from '../util/util.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { BuscaTodosComponent } from './busca-todos/busca-todos.component';
     CommonModule,
     ClienteRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    UtilModule
   ],
   providers: [
     ClienteService
